@@ -1,10 +1,10 @@
 package com.ptc.plms.gol.oops.rules;
 
-import com.ptc.plms.gol.oops.State;
+import com.ptc.plms.gol.oops.entity.State;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class RuleImplTest {
 
@@ -15,7 +15,6 @@ public class RuleImplTest {
         this.rule = new RuleImpl();
     }
 
-    //    Any live cell with fewer than two live neighbours dies, as if by underpopulation.
     @Test
     public void nextStateReturnsDeadStateWhenALiveCellHasLessThanTwoLiveNeighbours() {
         State expectedState = State.DEAD;
@@ -25,7 +24,6 @@ public class RuleImplTest {
         assertStateForDifferentLiveNeighbours(expectedState, currentState, liveNeighboursArr);
     }
 
-    //Any live cell with two or three live neighbours lives on to the next generation.
     @Test
     public void nextStateShouldReturnLiveStateWhenALiveCellHasTwoOrThreeLiveNeighbours() {
         State expectedState = State.LIVE;
